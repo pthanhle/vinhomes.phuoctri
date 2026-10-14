@@ -19,6 +19,7 @@ export interface LeadRecord {
 }
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'leads.json');
+const TMP_DATA_FILE = '/tmp/phuoctri-leads.json';
 
 // Simple in-memory IP rate limiter (5 requests per 10 minutes)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -33,16 +34,31 @@ function sanitize(input: unknown, maxLen = 500): string {
 
 async function readLeads(): Promise<LeadRecord[]> {
   try {
-    const content = await fs.readFile(DATA_FILE, 'utf-8');
-    return JSON.parse(content);
+    const tmpContent = await fs.readFile(TMP_DATA_FILE, 'utf-8');
+    return JSON.parse(tmpContent);
   } catch {
-    return [];
+    try {
+      const content = await fs.readFile(DATA_FILE, 'utf-8');
+      return JSON.parse(content);
+    } catch {
+      return [];
+    }
   }
 }
 
 async function writeLeads(leads: LeadRecord[]): Promise<void> {
-  await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
-  await fs.writeFile(DATA_FILE, JSON.stringify(leads, null, 2), 'utf-8');
+  const payload = JSON.stringify(leads, null, 2);
+  try {
+    await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
+    await fs.writeFile(DATA_FILE, payload, 'utf-8');
+  } catch {
+    // Fallback for Vercel Serverless read-only /var/task filesystem
+    try {
+      await fs.writeFile(TMP_DATA_FILE, payload, 'utf-8');
+    } catch {
+      // Ignore write error if /tmp is unavailable
+    }
+  }
 }
 
 export async function GET(request: NextRequest) {
@@ -109,12 +125,18 @@ export async function POST(request: NextRequest) {
     const name = sanitize(body.name, 120);
     const rawPhone = sanitize(body.phone, 30).replace(/[\s.\-()]/g, '');
     const email = sanitize(body.email, 120);
-    const message = sanitize(body.message, 1000);
-    const duAn = sanitize(body.du_an || 'Vinhomes Saigon Park', 120);
-    const pageSourceUrl = sanitize(body.page_source_url, 500);
-    const utmSource = sanitize(body.utm_source, 100);
-    const utmMedium = sanitize(body.utm_medium, 100);
-    const utmCampaign = sanitize(body.utm_campaign, 150);
+    const message = sanitize(body.message || body.need, 1000);
+    const duAn = sanitize(
+      body.du_an || body.project || 'Vinhomes Saigon Park',
+      120
+    );
+    const pageSourceUrl = sanitize(
+      body.page_source_url || body.sourcePage,
+      500
+    );
+    const utmSource = sanitize(body.utm_source || body.utmSource, 100);
+    const utmMedium = sanitize(body.utm_medium || body.utmMedium, 100);
+    const utmCampaign = sanitize(body.utm_campaign || body.utmCampaign, 150);
 
     // 3. Validate Name & Vietnamese Phone Number
     if (!name || name.length < 2) {
@@ -174,17 +196,59 @@ export async function POST(request: NextRequest) {
     leads.unshift(newLead);
     await writeLeads(leads);
 
-    // 5. Optional Async Webhook Forwarding to Google Sheets / Telegram (Server-Side Only)
+    // 5. Server-Side Webhook Forwarding to Google Sheets & Telegram Bot (Awaited for Vercel Serverless)
+    const webhookPromises: Promise<unknown>[] = [];
+
     const sheetsWebhook = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
-    if (
-      sheetsWebhook &&
-      !sheetsWebhook.includes('your-deployment-id')
-    ) {
-      fetch(sheetsWebhook, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newLead),
-      }).catch(() => {});
+    if (sheetsWebhook && !sheetsWebhook.includes('your-deployment-id')) {
+      webhookPromises.push(
+        fetch(sheetsWebhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...newLead,
+            need: message,
+            project: duAn,
+            sourcePage: pageSourceUrl,
+            utmSource,
+            utmMedium,
+            utmCampaign,
+          }),
+        })
+      );
+    }
+
+    const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+    const telegramChatId = process.env.TELEGRAM_CHAT_ID;
+    if (telegramToken && telegramChatId) {
+      const tgText = [
+        `🔔 <b>KHÁCH HÀNG MỚI (${leadId})</b>`,
+        `👤 <b>Họ tên:</b> ${name}`,
+        `📞 <b>SĐT:</b> ${rawPhone}`,
+        email ? `✉️ <b>Email:</b> ${email}` : '',
+        `🏢 <b>Dự án:</b> ${duAn}`,
+        message ? `💬 <b>Nhu cầu:</b> ${message}` : '',
+        pageSourceUrl ? `🔗 <b>Trang nguồn:</b> ${pageSourceUrl}` : '',
+        `🕒 <b>Thời gian:</b> ${createdAtDatetime}`,
+      ]
+        .filter(Boolean)
+        .join('\n');
+
+      webhookPromises.push(
+        fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: telegramChatId,
+            text: tgText,
+            parse_mode: 'HTML',
+          }),
+        })
+      );
+    }
+
+    if (webhookPromises.length > 0) {
+      await Promise.allSettled(webhookPromises);
     }
 
     return NextResponse.json({

@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  vinhomes-phuoctri:
+    build: .
+    container_name: vinhomes-phuoctri-web
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SITE_URL=https://vinhomes.phuoctri.com
+      - ADMIN_CRM_KEY=phuoctri-admin-2026
+    volumes:
+      - ./data:/app/data

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "PT-261014-001",
+    "name": "Trần Minh Hoàng",
+    "phone": "0918234567",
+    "email": "hoang.tran@gmail.com",
+    "message": "Quan tâm căn góc Shop The Beverly diện tích ~75m2 để mở showroom cà phê, gửi bảng tính dòng tiền qua Zalo giúp anh.",
+    "du_an": "Shop Beverly",
+    "page_source_url": "https://vinhomes.phuoctri.com/beverly/?utm_source=facebook&utm_medium=cpc&utm_campaign=beverly_oct2026",
+    "utm_source": "facebook",
+    "utm_medium": "cpc",
+    "utm_campaign": "beverly_oct2026",
+    "ip_address": "113.161.72.104",
+    "created_at_datetime": "2026-10-14 09:15:22",
+    "status": "Đã tư vấn Zalo"
+  },
+  {
+    "id": "PT-261014-002",
+    "name": "Nguyễn Thị Thanh Thảo",
+    "phone": "0903889112",
+    "email": "thaonguyen.invest@yahoo.com",
+    "message": "Chị cần bảng giá phân khu Ivy Park & Global Park Vinhomes Hóc Môn loại căn 3,5 - 4,2 tỷ, vay 65% HTLS 60 tháng.",
+    "du_an": "Vinhomes Saigon Park",
+    "page_source_url": "https://vinhomes.phuoctri.com/?utm_source=google&utm_medium=organic",
+    "utm_source": "google",
+    "utm_medium": "organic",
+    "utm_campaign": "",
+    "ip_address": "27.74.201.58",
+    "created_at_datetime": "2026-10-14 11:42:09",
+    "status": "Mới"
+  },
+  {
+    "id": "PT-261014-003",
+    "name": "Lê Quốc Tuấn",
+    "phone": "0989776543",
+    "email": "tuanle.q10@company.vn",
+    "message": "Quan tâm căn 3PN và Penthouse Vinhomes Kỳ Hòa 238 đường 3/2. Khi nào có mặt bằng 1/500 chính thức nhắn anh ngay.",
+    "du_an": "Vinhomes Kỳ Hòa",
+    "page_source_url": "https://vinhomes.phuoctri.com/kyhoa/?utm_source=zalo&utm_medium=referral",
+    "utm_source": "zalo",
+    "utm_medium": "referral",
+    "utm_campaign": "kyhoa_vip",
+    "ip_address": "14.169.33.190",
+    "created_at_datetime": "2026-10-14 14:20:45",
+    "status": "Mới"
+  }
+]

@@ -1,0 +1,249 @@
+<style>
+:root {
+            --tb-contact-primary: #76a713;
+            --tb-contact-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .tb-floating-contact {
+            --tb-contact-primary: #76a713;
+            position: fixed;
+            bottom: 30px; 
+            right: 20px;            z-index: 999999 !important;
+            display: flex;
+            flex-direction: column; 
+            gap: 12px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Toggle Button */
+        .tb-contact-toggle {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--tb-contact-primary);
+            box-shadow: 0 8px 16px rgba(118, 167, 19, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 10;
+        }
+        .tb-contact-toggle:hover { transform: scale(1.08); }
+        .tb-contact-toggle svg { width: 34px; height: 34px; fill: #fff; transition: all 0.3s ease; }
+        .tb-contact-toggle.is-active svg { transform: scale(0.8) rotate(135deg); }
+
+        /* Welcome Bubble */
+        .tb-contact-welcome-bubble {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 80px;            background: #fff;
+            color: #1e293b;
+            padding: 12px 35px 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(118, 167, 19, 0.25);
+            font-size: 15px;
+            font-weight: 600;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+            animation: tb-bubble-bounce 2s infinite ease-in-out;
+            z-index: 9;
+            cursor: pointer;
+        }
+        /* Triangle indicator */
+        .tb-contact-welcome-bubble::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -8px; border-left: 8px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent;        }
+        .tb-contact-welcome-bubble::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -9px; border-left: 9px solid #e2e8f0; border-top: 9px solid transparent; border-bottom: 9px solid transparent;            z-index: -1;
+        }
+        .tb-welcome-close {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 16px;
+            color: #94a3b8;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .tb-welcome-close:hover {
+            color: #475569;
+        }
+        @keyframes tb-bubble-bounce {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-6px); }
+        }
+
+        /* Contact Box Popup */
+        .tb-contact-box {
+            position: absolute;
+            bottom: 85px;
+            right: 0;            width: 340px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--tb-contact-shadow);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            transform-origin: bottom right;
+            animation: tb-box-in 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        @keyframes tb-box-in {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Header */
+        .tb-box-header {
+            background: var(--tb-contact-primary);
+            color: #fff;
+            padding: 18px 22px;
+            position: relative;
+        }
+        .tb-box-header h3 { margin: 0; font-size: 18px; font-weight: 800; color: #fff; line-height: 1.2; }
+        .tb-box-header p { margin: 4px 0 0; font-size: 13.5px; opacity: 0.95; line-height: 1.3; }
+        .tb-box-close { 
+            position: absolute; top: 15px; right: 15px; 
+            width: 28px; height: 28px; cursor: pointer; opacity: 0.8; 
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(0,0,0,0.1);
+        }
+        .tb-box-close:hover { opacity: 1; background: rgba(0,0,0,0.2); }
+
+        /* Body & Items */
+        .tb-box-body { padding: 10px 0; max-height: 480px; overflow-y: auto; overflow-x: hidden; }
+        .tb-box-body::-webkit-scrollbar { width: 5px; }
+        .tb-box-body::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        
+        .tb-box-item {
+            display: flex; align-items: center; gap: 15px;
+            padding: 10px 22px; text-decoration: none !important;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f8fafc;
+        }
+        .tb-box-item:last-child { border-bottom: none; }
+        .tb-box-item:hover { background: #f8fafc; }
+        
+        .tb-item-icon {
+            width: 52px; height: 52px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+        .tb-box-item:hover .tb-item-icon { transform: scale(1.1); }
+        .tb-item-icon img { width: 30px; height: 30px; object-fit: contain; }
+        
+        .tb-item-info { flex: 1; }
+        .tb-item-label { display: block; font-weight: 700; color: #1e293b; font-size: 16px; line-height: 1.3; }
+        .tb-item-sub { display: block; font-size: 13px; color: #64748b; margin-top: 2px; }
+
+        /* Footer */
+        .tb-box-footer {
+            background: #f8fafc; padding: 12px 22px;
+            border-top: 1px solid #f1f5f9;
+        }
+        .tb-box-footer p { margin: 0; font-size: 12px; color: #64748b; line-height: 1.4; white-space: pre-line; }
+
+        /* Old Style: Individual Buttons */
+        .tb-contact-btn {
+            display: block; width: 55px; height: 55px; border-radius: 50%;
+            background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative; cursor: pointer; transition: transform 0.2s ease;
+        }
+        .tb-contact-btn img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; display: block; padding: 12px; box-sizing: border-box; }
+        .tb-contact-btn:hover { transform: scale(1.1); }
+        .tb-contact-tooltip {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            right: 65px;            background: #1e293b; color: #fff; padding: 6px 12px; border-radius: 8px;
+            font-size: 13px; font-weight: 600; white-space: nowrap;
+            opacity: 0; visibility: hidden; transition: all 0.2s ease; pointer-events: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .tb-contact-btn:hover .tb-contact-tooltip { opacity: 1; visibility: visible; right: 72px; }
+
+        
+        /* Pulsing Ripple Animation */
+        @keyframes phone-vr-circle-fill {
+            0% { transform: rotate(0) scale(0.7); opacity: 0.6; }
+            50% { transform: rotate(0) scale(1); opacity: 0.15; }
+            100% { transform: rotate(0) scale(0.7); opacity: 0.6; }
+        }
+        @keyframes zoom {
+            0% { transform: scale(0.9); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px transparent; }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 transparent; }
+        }
+
+        /* Buttons style: ripple on .tb-contact-btn */
+        .tb-contact-btn.tb-shake-anim {
+            position: relative;
+            animation: zoom 1.3s infinite;
+        }
+        .tb-contact-btn.tb-shake-anim::after {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px;
+            width: 65px; height: 65px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background-color: inherit;
+            opacity: 0.6;
+            animation: phone-vr-circle-fill 2.3s infinite ease-in-out;
+            z-index: -1;
+        }
+        .tb-contact-btn.tb-shake-anim:hover {
+            animation-play-state: paused;
+        }
+        .tb-contact-btn.tb-shake-anim:hover::after {
+            animation-play-state: paused;
+        }
+
+        /* Box style: ripple on .tb-item-icon */
+        .tb-box-item .tb-item-icon.tb-shake-anim-icon {
+            position: relative;
+            animation: zoom 1.3s infinite;
+        }
+        .tb-box-item .tb-item-icon.tb-shake-anim-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px;
+            width: 62px; height: 62px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background-color: inherit;
+            opacity: 0.6;
+            animation: phone-vr-circle-fill 2.3s infinite ease-in-out;
+            z-index: -1;
+        }
+        .tb-box-item:hover .tb-item-icon.tb-shake-anim-icon {
+            animation-play-state: paused;
+        }
+        .tb-box-item:hover .tb-item-icon.tb-shake-anim-icon::after {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 768px) {
+            .tb-floating-contact { bottom: 60px; right: 15px; }
+            .tb-contact-box { width: 280px; bottom: 70px; }
+            .tb-hide-mobile { display: none !important; }
+        }
+        @media (max-width: 480px) {
+            .tb-contact-box { width: calc(100vw - 40px); max-width: 320px; bottom: 80px; right: 20px; }
+            .tb-contact-toggle { width: 55px; height: 55px; }
+        }
+    </style> <div class="tb-floating-contact"> <a href="tel:0909888999" class="tb-contact-btn tb-contact-phone tb-shake-anim" style="background-color: #f0ac1a;" target="_blank" rel="nofollow noopener"> <img src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/05/icon.svg-93.svg" alt="Hotline"> <span class="tb-contact-tooltip">Hotline</span> </a> <a href="https://zalo.me/0909888999" class="tb-contact-btn tb-contact-zalo tb-shake-anim" style="background-color: #f0ac1a;" target="_blank" rel="nofollow noopener"> <img src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/05/zalo-2.svg" alt="Chat Zalo"> <span class="tb-contact-tooltip">Chat Zalo</span> </a> </div>

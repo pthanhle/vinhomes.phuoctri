@@ -1,0 +1,24 @@
+{
+  "name": "vinhomes-phuoctri",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Hệ thống Multi-Landing Page & Blog BĐS Vinhomes Hiệu Năng Cao - Phước Trí Vinhomes (vinhomes.phuoctri.com)",
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}

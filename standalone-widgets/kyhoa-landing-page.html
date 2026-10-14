@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinhomes Kỳ Hòa Quận 10 – Recovered Custom Landing Page</title>
+</head>
+<body style="margin:0;background:#0F1419;">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap&subset=vietnamese" rel="stylesheet"> <style>
+:root{--ink:#0F1419;--ink2:#18202A;--gold:#C9A96E;--gold2:#E6D3A8;--ivory:#F6F2EA;--line:rgba(201,169,110,.28);--txt:#2A2F36;--mut:#6B7380}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{background:var(--ink)!important;margin:0}
+.kh,.kh *{box-sizing:border-box}
+.kh{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--txt);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.kh img{max-width:100%;height:auto;display:block}
+.kh a{text-decoration:none}
+.kh h1,.kh h2,.kh h3{font-family:'Cormorant Garamond',Georgia,serif;margin:0;line-height:1.25;font-weight:600}
+.kh p{margin:0 0 14px}
+.kh-wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.kh-eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;display:block}
+.kh-sec{padding:96px 0}
+.kh-sec.dark{background:var(--ink);color:#D9DDE3}
+.kh-sec.dark h2,.kh-sec.dark h3{color:#fff}
+.kh-sec.light{background:var(--ivory)}
+.kh-sec.light h2{color:var(--ink)}
+.kh h2{font-size:clamp(32px,4.6vw,52px);margin-bottom:18px;font-weight:600}
+.kh-lead{font-size:18px;max-width:760px;color:inherit;opacity:.9}
+.kh-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:.2s;cursor:pointer;border:0}
+.kh-btn.gold{background:var(--gold);color:var(--ink)!important}
+.kh-btn.gold:hover{background:var(--gold2)}
+.kh-btn.ghost{border:1px solid rgba(255,255,255,.5);color:#fff!important}
+.kh-btn.ghost:hover{border-color:var(--gold);color:var(--gold)!important}
+/* NAV */
+.kh-nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(15,20,25,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.kh-nav .kh-wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.kh-logo{font-family:'Cormorant Garamond',serif;color:#fff!important;font-size:22px;letter-spacing:.12em;font-weight:600;white-space:nowrap}
+.kh-logo b{color:var(--gold);font-weight:600}
+.kh-tabs{display:flex;gap:4px}
+.kh-tabs a{color:#C8CDD4!important;font-size:14px;font-weight:500;padding:8px 16px;border-radius:999px;transition:.2s;white-space:nowrap}
+.kh-tabs a:hover{color:#fff!important}
+.kh-tabs a.on{background:var(--gold);color:var(--ink)!important}
+.kh-nav .kh-call{color:var(--gold)!important;font-weight:600;font-size:15px;white-space:nowrap}
+/* HERO */
+.kh-hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#0b0e12 url('https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-hero-poster.webp') center/cover}
+.kh-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kh-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,13,17,.88) 0%,rgba(10,13,17,.62) 42%,rgba(10,13,17,.15) 75%),linear-gradient(180deg,rgba(10,13,17,.25) 0%,rgba(10,13,17,0) 40%,rgba(10,13,17,.95) 100%)}
+.kh-hero .kh-wrap{position:relative;z-index:2;padding-top:150px;padding-bottom:64px;width:100%}
+.kh-badge{display:inline-flex;align-items:center;gap:10px;color:#E9DDBF;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:30px}
+.kh-badge:before{content:"";width:36px;height:1px;background:linear-gradient(90deg,transparent,#D8B66A)}
+.kh-badge i{width:7px;height:7px;border-radius:50%;background:#E8C979;box-shadow:0 0 0 4px rgba(232,201,121,.18);animation:khPulse 2s infinite}
+@keyframes khPulse{50%{box-shadow:0 0 0 8px rgba(232,201,121,0)}}
+.kh-foil{background:linear-gradient(100deg,#7c5a22 0%,#c9a24f 14%,#fff3c4 28%,#d8b66a 40%,#8f6a2b 52%,#e9cf8b 66%,#fff8dc 76%,#c39a49 88%,#7c5a22 100%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:khShine 7s linear infinite}
+@keyframes khShine{to{background-position:220% center}}
+.kh-hero h1{margin:0 0 26px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:.92;filter:drop-shadow(0 4px 18px rgba(0,0,0,.45))}
+.kh-hero h1 .kh-h1a{display:block;font-family:'Be Vietnam Pro',sans-serif;font-weight:300;font-size:clamp(14px,1.6vw,20px);letter-spacing:.62em;color:#F3EBD8;margin:0 0 14px 4px;-webkit-text-fill-color:#F3EBD8}
+.kh-hero h1 .kh-h1b{display:block;font-size:clamp(64px,11vw,148px);letter-spacing:.04em;text-transform:uppercase}
+.kh-sub{display:flex;align-items:center;gap:16px;margin:0 0 10px;color:#E9DDBF;font-size:clamp(12px,1.25vw,15px);letter-spacing:.32em;text-transform:uppercase;font-weight:400}
+.kh-sub:after{content:"";flex:0 0 70px;height:1px;background:linear-gradient(90deg,#D8B66A,transparent)}
+.kh-addr{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.2vw,28px);color:#fff;margin:0 0 22px;font-weight:500}
+.kh-hero p.kh-lead{color:#D3D7DD;font-size:16px;font-weight:300;max-width:600px}
+.kh-cta{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 48px}
+.kh-hero .kh-btn.gold{background:linear-gradient(100deg,#b8893a,#f1d98f 45%,#c9a24f 70%,#a87d33);color:#1a1408!important;box-shadow:0 8px 30px rgba(201,162,79,.35);letter-spacing:.04em}
+.kh-hero .kh-btn.gold:hover{filter:brightness(1.08)}
+.kh-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(216,182,106,.35)}
+.kh-stats div{padding:22px 16px 0 0}
+.kh-stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,46px);font-weight:600;line-height:1.05}
+.kh-stats small{color:#AEB5BE;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+/* GRID */
+.kh-2{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.kh-2.top{align-items:start}
+.kh-fig{margin:0;border-radius:14px;overflow:hidden;background:#000;position:relative}
+.kh-fig figcaption{font-size:12.5px;color:var(--mut);padding:10px 2px 0;background:transparent}
+.kh-sec.dark .kh-fig figcaption{color:#8E96A1}
+.kh-figwrap figcaption{font-size:12.5px;color:var(--mut);padding-top:10px;line-height:1.5}
+.kh-sec.dark .kh-figwrap figcaption{color:#8E96A1}
+.kh-zoom{cursor:zoom-in}
+/* list */
+.kh-list{list-style:none;padding:0;margin:22px 0 0}
+.kh-list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.kh-list li:last-child{border-bottom:0}
+.kh-list i{flex:0 0 auto;font-style:normal;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:20px;min-width:30px}
+.kh-list strong{color:#fff;display:block;font-weight:600}
+.kh-sec.light .kh-list strong{color:var(--ink)}
+.kh-near{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.kh-near div{border:1px solid var(--line);border-radius:12px;padding:18px}
+.kh-near b{color:var(--gold);font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:6px}
+.kh-near span{color:#E3E6EA;font-size:15px}
+.kh-roads{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+.kh-roads div{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;color:#fff;font-weight:500;font-size:15px}
+.kh-roads small{display:block;color:#8E96A1;font-weight:400;font-size:12px}
+/* table */
+.kh-table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px rgba(15,20,25,.06)}
+.kh-table th,.kh-table td{padding:14px 18px;text-align:left;border-bottom:1px solid #EEE7DA;vertical-align:top}
+.kh-table th{width:36%;color:var(--mut);font-weight:500;background:#FBF8F2}
+.kh-table td{color:var(--ink);font-weight:500}
+.kh-table tr:last-child th,.kh-table tr:last-child td{border-bottom:0}
+.kh-tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:#F3E9D3;color:#7A5B1E;margin-left:6px;font-weight:600}
+.kh-why{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+.kh-why div{background:#fff;border-radius:14px;padding:26px 22px;border-top:3px solid var(--gold)}
+.kh-why h3{font-size:20px;color:var(--ink);margin-bottom:8px}
+.kh-why p{font-size:14.5px;color:var(--mut);margin:0}
+.kh-gal3{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;margin-top:48px}
+.kh-time{margin-top:56px;border-left:2px solid var(--gold);padding-left:26px}
+.kh-time div{position:relative;padding-bottom:20px}
+.kh-time div:before{content:"";position:absolute;left:-33px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+.kh-time b{color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:18px;margin-right:8px}
+.kh-note{font-size:13px;color:var(--mut);background:#fff;border:1px dashed #D8C8A6;border-radius:10px;padding:14px 16px;margin-top:28px}
+/* amenities */
+.kh-am{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.kh-am div{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:26px 22px}
+.kh-am b{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold);display:block;line-height:1.1;margin-bottom:6px}
+.kh-am h3{font-size:19px;color:#fff;margin-bottom:6px}
+.kh-am p{font-size:14.5px;color:#AEB5BE;margin:0}
+.kh-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.kh-gal .kh-fig{aspect-ratio:3/4}
+.kh-gal .kh-fig img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.kh-gal .kh-fig:hover img{transform:scale(1.04)}
+.kh-gal .kh-fig span{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:13px}
+/* FAQ */
+.kh-faq details{border-bottom:1px solid #E5DCCB;padding:18px 0}
+.kh-faq summary{cursor:pointer;font-weight:600;color:var(--ink);font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.kh-faq summary::-webkit-details-marker{display:none}
+.kh-faq summary:after{content:"+";color:var(--gold);font-size:24px;line-height:1}
+.kh-faq details[open] summary:after{content:"–"}
+.kh-faq details p{margin:12px 0 0;color:var(--mut)}
+/* lightbox */
+.kh-lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100000;display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.kh-lb.on{display:flex}
+.kh-lb img{max-height:92vh;max-width:96vw;border-radius:6px}
+/* mobile bar */
+.kh-bar{display:none}
+@media(max-width:960px){
+ .kh-2,.kh-gal3{grid-template-columns:1fr;gap:28px}
+ .kh-why,.kh-gal{grid-template-columns:1fr 1fr}
+ .kh-am,.kh-near{grid-template-columns:1fr 1fr}
+ .kh-nav .kh-call{display:none}
+}
+@media(max-width:640px){
+ html{scroll-padding-top:112px}
+ .kh-hero h1 .kh-h1a{letter-spacing:.45em}
+ .kh-sub{letter-spacing:.18em}
+ .kh-sub:after{display:none}
+ .kh-hero:after{background:linear-gradient(180deg,rgba(10,13,17,.55) 0%,rgba(10,13,17,.55) 40%,rgba(10,13,17,.95) 100%)}
+ .kh-sec{padding:64px 0}
+ .kh-nav .kh-wrap{flex-direction:column;height:auto;padding-top:10px;padding-bottom:8px;gap:6px}
+ .kh-tabs{width:100%;justify-content:space-between;overflow-x:auto}
+ .kh-tabs a{padding:7px 12px;font-size:13.5px}
+ .kh-stats{grid-template-columns:1fr 1fr}
+ .kh-stats div{padding:16px 10px 0 0}
+ .kh-am,.kh-near,.kh-why{grid-template-columns:1fr}
+ .kh-roads{grid-template-columns:1fr 1fr}
+ .kh-table th,.kh-table td{padding:12px;font-size:14px;display:block;width:100%}
+ .kh-table th{border-bottom:0;padding-bottom:2px}
+ .kh-bar{display:grid;grid-template-columns:1fr 1fr 1.3fr;position:fixed;left:0;right:0;bottom:0;z-index:998;background:var(--ink);border-top:1px solid var(--line)}
+ .kh-bar a{color:#fff!important;text-align:center;padding:12px 4px;font-size:14px;font-weight:600}
+ .kh-bar a:last-child{background:var(--gold);color:var(--ink)!important}
+ body{padding-bottom:50px}
+}
+
+.elementor-widget-form{width:100%!important;max-width:760px!important;margin:0 auto!important;padding:0 20px!important}
+.elementor-widget-form .elementor-field-group .elementor-field{background:#18202A!important;border:1px solid rgba(201,169,110,.35)!important;color:#fff!important;border-radius:10px!important;padding:14px 16px!important;font-family:'Be Vietnam Pro',sans-serif!important;font-size:15px!important}
+.elementor-widget-form .elementor-field::placeholder{color:#8E96A1!important}
+.elementor-widget-form .elementor-button{background:linear-gradient(100deg,#b8893a,#f1d98f 45%,#c9a24f 70%,#a87d33)!important;color:#1a1408!important;border-radius:999px!important;font-weight:700!important;padding:16px 28px!important;font-family:'Be Vietnam Pro',sans-serif!important;letter-spacing:.06em}
+.elementor-widget-form .elementor-button:hover{filter:brightness(1.08)}
+.elementor-widget-form .elementor-message{color:#E6D3A8!important}
+body.admin-bar .kh-nav{top:32px}
+.elementor-element .e-con-inner{padding:0!important}
+@media(prefers-reduced-motion:reduce){.kh-foil,.kh-badge i{animation:none}}
+</style> <div class="kh"> <nav class="kh-nav" aria-label="Điều hướng Vinhomes Kỳ Hòa"> <div class="kh-wrap"> <a class="kh-logo" href="#top">VINHOMES <b class="kh-foil">KỲ HÒA</b></a> <div class="kh-tabs"> <a href="#vi-tri" data-t="vi-tri">Vị trí</a> <a href="#tong-quan" data-t="tong-quan">Tổng quan</a> <a href="#tien-ich" data-t="tien-ich">Tiện ích</a> <a href="#lien-he" data-t="lien-he">Liên hệ</a> </div> <a class="kh-call" href="tel:0909888999">☎ 0909.888.999</a> </div> </nav> <header class="kh-hero" id="top"> <video autoplay muted loop playsinline preload="metadata" poster="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-hero-poster.webp"><source src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-hero-v2.mp4" type="video/mp4"></video> <div class="kh-wrap"> <span class="kh-badge"><i></i>Sắp ra mắt · QH 1/500 đang lấy ý kiến · 10/2026</span> <h1><span class="kh-h1a">VINHOMES</span><span class="kh-h1b kh-foil">Kỳ Hòa</span></h1> <p class="kh-sub">Đô thị cao tầng TOD · Trung tâm TP.HCM</p> <p class="kh-addr">238 Đường 3 Tháng 2, P. Hòa Hưng (Quận 10 cũ)</p> <p class="kh-lead">Khu đất hiếm hoi rộng hơn 8 ha nằm ngay nội đô, cách chợ Bến Thành chỉ khoảng 3–4 km, được Vingroup đề xuất phát triển thành tổ hợp căn hộ – thương mại – văn phòng gắn với tuyến Metro số 2.</p> <div class="kh-cta"> <a class="kh-btn gold" href="#lien-he">Đăng ký nhận thông tin sớm</a> <a class="kh-btn ghost" href="tel:0909888999">☎ Gọi 0909.888.999</a> </div> <div class="kh-stats"> <div><b class="kh-foil">~8,2 ha</b><small>Quy mô khu đất</small></div> <div><b class="kh-foil">45 tầng</b><small>Chiều cao tối đa đề xuất</small></div> <div><b class="kh-foil">~10.000</b><small>Dân số quy hoạch</small></div> <div><b class="kh-foil">4 mặt tiền</b><small>3/2 · Lê Hồng Phong · Cao Thắng · Hoàng Dư Khương</small></div> </div> </div> </header> <section class="kh-sec dark" id="vi-tri"> <div class="kh-wrap"> <div class="kh-2"> <div> <span class="kh-eyebrow">01 · Vị trí</span> <h2>Vị trí kim cương – lõi trung tâm TP.HCM</h2> <p class="kh-lead">Vinhomes Kỳ Hòa tọa lạc tại <strong style="color:#fff">238 đường 3 Tháng 2, phường Hòa Hưng (Quận 10 cũ)</strong> – khu vực đã phát triển đồng bộ, dân cư đông đúc và gần như không còn quỹ đất lớn.</p> <ul class="kh-list"> <li><i>01</i><div><strong>4 mặt tiền đường lớn</strong>Bao quanh bởi đường 3 Tháng 2, Lê Hồng Phong, Cao Thắng nối dài và Hoàng Dư Khương, kèm một tuyến đường quy hoạch 20 m.</div></li> <li><i>02</i><div><strong>Mô hình TOD gắn Metro số 2</strong>Tuyến Bến Thành – Tham Lương (khởi công 15/01/2026, dự kiến hoàn thành 2030) đi qua khu vực, các ga Dân Chủ, Hòa Hưng nằm trong bán kính lân cận.</div></li> <li><i>03</i><div><strong>Về Quận 1 cũ trong vài phút</strong>Theo trục 3 Tháng 2 – Cách Mạng Tháng Tám – Điện Biên Phủ, cách chợ Bến Thành khoảng 3–4 km.</div></li> </ul> </div> <div class="kh-figwrap"> <figure class="kh-fig"><img loading="lazy" decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-vi-tri-ban-do.webp" alt="Vị trí Vinhomes Kỳ Hòa 238 đường 3 Tháng 2 gần chợ Bến Thành" width="1280" height="816" loading="lazy"></figure> <figcaption>Bản đồ vị trí khu đất Kỳ Hòa – bấm để phóng to.</figcaption> </div> </div> <div class="kh-roads"> <div>Đường 3 Tháng 2<small>Mặt tiền chính</small></div> <div>Lê Hồng Phong<small>Mặt tiền phía Tây</small></div> <div>Cao Thắng<small>Mặt tiền phía Bắc</small></div> <div>Hoàng Dư Khương<small>Mặt tiền phía Tây Bắc</small></div> </div> <div class="kh-2 top"> <div class="kh-figwrap"><figure class="kh-fig"><img loading="lazy" decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-ranh-dat.webp" alt="Ranh khu đất 238 đường 3 Tháng 2 Vinhomes Kỳ Hòa" width="942" height="674" loading="lazy"></figure><figcaption>Ranh khu đất: ~8,12 ha theo GCN, ~8,29 ha theo đồ án QHPK 1/2000.</figcaption></div> <div class="kh-figwrap"><figure class="kh-fig"><img loading="lazy" decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-4-mat-tien.webp" alt="Vinhomes Kỳ Hòa 4 mặt tiền Lê Hồng Phong, Cao Thắng, Hoàng Dư Khương, 3 Tháng 2" width="720" height="1280" loading="lazy" style="max-height:560px;width:100%;object-fit:cover"></figure><figcaption>Các trục đường bao quanh dự án (hình minh họa).</figcaption></div> </div> <div class="kh-near"> <div><b>Ngay kế bên</b><span>Việt Nam Quốc Tự · Nhà hát Hòa Bình · BV Nhi Đồng 1</span></div> <div><b>Mua sắm – giải trí</b><span>Vạn Hạnh Mall · Satramart · Lotte Mart</span></div> <div><b>Thể thao – công viên</b><span>SVĐ Thống Nhất · NTĐ Phú Thọ · CV Lý Thái Tổ</span></div> <div><b>Giao thông</b><span>Ga Sài Gòn · Vòng xoay Dân Chủ · Ngã Bảy Lý Thái Tổ</span></div> <div><b>Trung tâm</b><span>Chợ Bến Thành · Quận 1 cũ · Hầm Thủ Thiêm</span></div> <div><b>Metro số 2</b><span>Ga Dân Chủ · Ga Hòa Hưng (tuyến Bến Thành – Tham Lương)</span></div> </div> </div> </section> <section class="kh-sec light" id="tong-quan"> <div class="kh-wrap"> <span class="kh-eyebrow">02 · Tổng quan</span> <h2>Tổng quan dự án Vinhomes Kỳ Hòa</h2> <p class="kh-lead">Số liệu dưới đây theo hồ sơ đề xuất điều chỉnh quy hoạch chi tiết 1/500 đang được lấy ý kiến (VnExpress, 04/10/2026). Thông số chính thức sẽ cập nhật khi được phê duyệt.</p> <div class="kh-2 top" style="margin-top:36px"> <table class="kh-table"> <tr><th>Tên thị trường</th><td>Vinhomes Kỳ Hòa (Khu Kỳ Hòa)</td></tr> <tr><th>Vị trí</th><td>238 đường 3 Tháng 2, P. Hòa Hưng, TP.HCM (Quận 10 cũ)</td></tr> <tr><th>Đơn vị đề xuất</th><td>Vingroup (Vinhomes)</td></tr> <tr><th>Quy mô</th><td>~8,2 ha</td></tr> <tr><th>Đất ở chung cư</th><td>~4,2 ha (khoảng 51%)</td></tr> <tr><th>Chiều cao tối đa</th><td>45 tầng <span class="kh-tag">Đề xuất</span></td></tr> <tr><th>Hệ số sử dụng đất</th><td>11 lần</td></tr> <tr><th>Mật độ xây dựng khối đế</th><td>60%</td></tr> <tr><th>Dân số dự kiến</th><td>~10.000 người</td></tr> <tr><th>Mô hình</th><td>TOD – căn hộ cao tầng kết hợp thương mại dịch vụ</td></tr> <tr><th>Pháp lý</th><td>QH chi tiết 1/500 đang lấy ý kiến <span class="kh-tag">10/2026</span></td></tr> <tr><th>Giá bán</th><td>Chưa công bố – <a href="#lien-he" style="color:#9A7430;font-weight:600">đăng ký nhận sớm</a></td></tr> </table> <div> <div class="kh-figwrap"><figure class="kh-fig"><img loading="lazy" decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-tong-mat-bang-y-tuong.webp" alt="Tổng mặt bằng ý tưởng Vinhomes Kỳ Hòa" width="1536" height="1024" loading="lazy"></figure><figcaption>Tổng mặt bằng ý tưởng – phương án nghiên cứu độc lập, chưa phải quy hoạch phê duyệt.</figcaption></div> <div class="kh-time"> <div><b>2008</b>TP.HCM cấp phép dự án Berjaya Vietnam Financial Center (~8,12 ha) cho tập đoàn Berjaya (Malaysia).</div> <div><b>2018</b>Vinhomes góp khoảng 2.009 tỷ đồng, sở hữu 67,5% Berjaya VFC; phần vốn còn lại sau đó được chuyển nhượng.</div> <div><b>10/2026</b>Vingroup đề xuất điều chỉnh QH 1/500 theo mô hình TOD, nâng tầng cao lên tối đa 45 tầng.</div> </div> </div> </div> <div class="kh-why"> <div><h3>Quỹ đất hiếm</h3><p>Hơn 8 ha liền thửa giữa nội đô – gần như không còn khu đất nào tương tự quanh Quận 1, 3, 10 cũ.</p></div> <div><h3>Thương hiệu Vinhomes</h3><p>Chuẩn vận hành, tiện ích và cộng đồng cư dân đã được kiểm chứng qua nhiều đại đô thị.</p></div> <div><h3>Đón đầu Metro số 2</h3><p>Mô hình TOD – giá trị BĐS thường bứt tốc khi tuyến metro tiến gần ngày vận hành.</p></div> <div><h3>Cao tầng – xanh</h3><p>Cây xanh công cộng ~1,5 ha, khối đế thương mại, trường học và hầm xe ngay trong dự án.</p></div> </div> <div class="kh-gal3"> <div class="kh-figwrap"><figure class="kh-fig"><img loading="lazy" decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-phoi-canh-y-tuong.webp" alt="Phối cảnh ý tưởng Vinhomes Kỳ Hòa" width="1536" height="1024" loading="lazy"></figure><figcaption>Phối cảnh ý tưởng (minh họa).</figcaption></div> <div class="kh-figwrap"><figure class="kh-fig"><img loading="lazy" decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-quy-hoach-1-500.webp" alt="Bản đồ quy hoạch 1/500 Vinhomes Kỳ Hòa (đề xuất)" width="942" height="722" loading="lazy"></figure><figcaption>Bản đồ quy hoạch sử dụng đất (đề xuất).</figcaption></div> <div class="kh-figwrap"><figure class="kh-fig"><img loading="lazy" decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-bang-chi-tieu-quy-hoach.webp" alt="Bảng tổng hợp quy hoạch sử dụng đất Vinhomes Kỳ Hòa" width="942" height="970" loading="lazy"></figure><figcaption>Bảng tổng hợp chỉ tiêu sử dụng đất.</figcaption></div> </div> </div> </section> <section class="kh-sec dark" id="tien-ich"> <div class="kh-wrap"> <span class="kh-eyebrow">03 · Tiện ích</span> <h2>Tiện ích nội khu – sống xanh giữa phố</h2> <p class="kh-lead">Theo hồ sơ đề xuất, gần một nửa khu đất dành cho cây xanh, giáo dục, văn hóa – thể thao và hạ tầng. Một hệ tiện ích hiếm thấy với dự án nội đô.</p> <div class="kh-am"> <div><b>~1,5 ha</b><h3>Công viên công cộng</h3><p>Chiếm khoảng 18,4% diện tích, cộng thêm khoảng 1 ha cây xanh trên mái.</p></div> <div><b>9.394 m²</b><h3>Trường học trong dự án</h3><p>Trường mầm non và trường liên cấp tiểu học – THCS cho khoảng 1.700 học sinh.</p></div> <div><b>2 tầng hầm</b><h3>Bãi xe ngầm</h3><p>Bãi đỗ xe ngầm quy mô lớn, giải phóng mặt đất cho mảng xanh và lối đi bộ.</p></div> <div><b>Khối đế</b><h3>Thương mại – dịch vụ</h3><p>Phố mua sắm, ẩm thực, quảng trường thương mại ngay dưới chân cư dân.</p></div> <div><b>VH · YT · TT</b><h3>Văn hóa – Y tế – Thể thao</h3><p>Quỹ đất riêng cho sân chơi, sân tập luyện, nhà văn hóa và trạm y tế.</p></div> <div><b>Metro 2</b><h3>Kết nối TOD</h3><p>Đường nội bộ kết nối Cao Thắng, 3 Tháng 2, Lê Hồng Phong và các ga Metro số 2.</p></div> </div> <div class="kh-gal"> <figure class="kh-fig"><img decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-mat-bang-tien-ich.webp" alt="Mặt bằng tiện ích Vinhomes Kỳ Hòa (minh họa)" loading="lazy"><span>Mặt bằng tiện ích</span></figure> <figure class="kh-fig"><img decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-cong-vien.webp" alt="Công viên cây xanh nội khu Vinhomes Kỳ Hòa (phối cảnh minh họa)" loading="lazy"><span>Công viên – hồ cảnh quan</span></figure> <figure class="kh-fig"><img decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-thap-can-ho.webp" alt="Tháp căn hộ Vinhomes Kỳ Hòa (phối cảnh minh họa)" loading="lazy"><span>Tháp căn hộ cao tầng</span></figure> <figure class="kh-fig"><img decoding="async" class="kh-zoom" src="https://vinhomes.phuoctri.com/wp-content/uploads/2026/10/vinhomes-ky-hoa-hoang-hon.webp" alt="Vinhomes Kỳ Hòa lúc hoàng hôn (phối cảnh minh họa)" loading="lazy"><span>Skyline mới của nội đô</span></figure> </div> <p style="font-size:12.5px;color:#8E96A1;margin-top:16px">*Hình ảnh là phối cảnh ý tưởng/minh họa, không phải thiết kế chính thức của Chủ đầu tư.</p> </div> </section> <section class="kh-sec light"> <div class="kh-wrap" style="max-width:860px"> <span class="kh-eyebrow">Hỏi đáp nhanh</span> <h2>Khách hay hỏi gì về Vinhomes Kỳ Hòa?</h2> <div class="kh-faq"> <details><summary>Vinhomes Kỳ Hòa nằm ở đâu?</summary><p>Tại 238 đường 3 Tháng 2, phường Hòa Hưng, TP.HCM (Quận 10 cũ), giới hạn bởi các đường 3 Tháng 2, Lê Hồng Phong, Cao Thắng nối dài và Hoàng Dư Khương.</p></details> <details><summary>Dự án đã mở bán chưa, giá bao nhiêu?</summary><p>Chưa. Tính đến 10/2026 dự án đang ở giai đoạn lấy ý kiến quy hoạch chi tiết 1/500, Chủ đầu tư chưa công bố giá và chính sách bán hàng. Anh/chị để lại số điện thoại để được gửi thông tin ngay khi có.</p></details> <details><summary>Dự án có bao nhiêu tầng, quy mô bao nhiêu?</summary><p>Theo hồ sơ đề xuất: khu đất khoảng 8,2 ha, chiều cao tối đa 45 tầng, hệ số sử dụng đất 11 lần, dân số khoảng 10.000 người.</p></details> <details><summary>Vì sao gọi là dự án TOD?</summary><p>TOD là mô hình đô thị phát triển gắn với giao thông công cộng. Kỳ Hòa nằm gần tuyến Metro số 2 Bến Thành – Tham Lương (khởi công 15/01/2026), cư dân có thể đi metro vào trung tâm thay vì phụ thuộc xe cá nhân.</p></details> </div> </div> </section> </div> <div class="kh-bar" role="navigation" aria-label="Liên hệ nhanh di động"><a href="tel:0909888999">☎ Gọi 0909.888.999</a><a href="https://zalo.me/0909888999" target="_blank" rel="noopener">💬 Chat Zalo</a><a href="#lien-he">Đăng ký sớm</a></div><div class="kh-lb" id="khLb"><img alt=""></div> <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Vinhomes Kỳ Hòa nằm ở đâu?","acceptedAnswer":{"@type":"Answer","text":"Tại 238 đường 3 Tháng 2, phường Hòa Hưng, TP.HCM (Quận 10 cũ), giới hạn bởi các đường 3 Tháng 2, Lê Hồng Phong, Cao Thắng nối dài và Hoàng Dư Khương."}},
+{"@type":"Question","name":"Dự án đã mở bán chưa, giá bao nhiêu?","acceptedAnswer":{"@type":"Answer","text":"Chưa. Tính đến 10/2026 dự án đang ở giai đoạn lấy ý kiến quy hoạch chi tiết 1/500, Chủ đầu tư chưa công bố giá và chính sách bán hàng."}},
+{"@type":"Question","name":"Dự án có bao nhiêu tầng, quy mô bao nhiêu?","acceptedAnswer":{"@type":"Answer","text":"Theo hồ sơ đề xuất: khu đất khoảng 8,2 ha, chiều cao tối đa 45 tầng, hệ số sử dụng đất 11 lần, dân số khoảng 10.000 người."}},
+{"@type":"Question","name":"Vì sao gọi là dự án TOD?","acceptedAnswer":{"@type":"Answer","text":"TOD là mô hình đô thị phát triển gắn với giao thông công cộng. Kỳ Hòa nằm gần tuyến Metro số 2 Bến Thành – Tham Lương."}}
+]}
+</script> <script>
+(function(){
+ var tabs=[].slice.call(document.querySelectorAll('.kh-tabs a'));
+ function act(id){tabs.forEach(function(a){a.classList.toggle('on',a.dataset.t===id)})}
+ if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)act(e.target.id)})},{rootMargin:'-45% 0px -50% 0px'});
+  ['vi-tri','tong-quan','tien-ich','lien-he'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+ }
+ var lb=document.getElementById('khLb');
+ document.addEventListener('click',function(e){var t=e.target;if(t.classList&&t.classList.contains('kh-zoom')){lb.querySelector('img').src=t.currentSrc||t.src;lb.classList.add('on')}else if(lb.contains(t)){lb.classList.remove('on')}});
+ var v=document.querySelector('.kh-hero video');if(v&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause()}
+})();
+</script>
+</body>
+</html>
